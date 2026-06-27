@@ -1,0 +1,42 @@
+.gooey-wrapper {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gooey-svg {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.gooey-morph {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  min-height: 80px;
+}
+
+.gooey-text {
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  user-select: none;
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+@media (max-width: 768px) {
+  .gooey-text {
+    font-size: 2.2rem;
+  }
+  .gooey-morph {
+    min-height: 60px;
+  }
+}

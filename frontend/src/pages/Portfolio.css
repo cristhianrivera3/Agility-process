@@ -1,0 +1,196 @@
+/* =========================
+   BASE
+========================= */
+
+.portfolio-page {
+  padding-top: 100px;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.portfolio-hero {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.portfolio-hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.portfolio-hero p {
+  color: #9ca3af;
+  margin-top: 10px;
+}
+
+/* =========================
+   PROYECTOS
+========================= */
+
+.projects-section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px 60px;
+}
+
+.projects-section h2 {
+  margin-bottom: 30px;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+/* CARD */
+.project-card-pro {
+  padding: 25px;
+  background: rgba(20, 20, 30, 0.8);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+}
+
+.project-card-pro:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0,212,255,0.3);
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.5),
+    0 0 25px rgba(0,212,255,0.1);
+}
+
+.project-card-pro p {
+  color: #9ca3af;
+  margin: 10px 0;
+}
+
+/* TECH */
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-tech span {
+  font-size: 0.7rem;
+  background: rgba(255,255,255,0.05);
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+
+/* LINK */
+.project-link {
+  display: inline-block;
+  margin-top: 15px;
+  color: #00d4ff;
+  font-weight: 600;
+}
+
+/* =========================
+   EQUIPO / CEOS
+========================= */
+
+.team-section-pro {
+  text-align: center;
+  margin-top: 80px;
+}
+
+.team-section-pro h2 {
+  font-size: 2rem;
+}
+
+.team-subtitle {
+  color: #9ca3af;
+  margin: 10px auto 40px;
+  max-width: 600px;
+}
+
+.team-grid-pro {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* TARJETA */
+.team-card-pro {
+  background: rgba(20,20,30,0.8);
+  border-radius: 16px;
+  padding: 30px 20px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+}
+
+.team-card-pro:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0,212,255,0.3);
+}
+
+/* AVATAR */
+.team-avatar-pro {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg,#00d4ff,#7B5CFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.team-role-pro {
+  color: #00d4ff;
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.team-card-pro p {
+  color: #9ca3af;
+  font-size: 0.85rem;
+}
+
+/* MENSAJE FINAL */
+.team-coming {
+  margin-top: 40px;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+/* =========================
+   GRADIENT (FIX PRO)
+========================= */
+
+.gradient-text {
+  background: linear-gradient(135deg, #00d4ff, #7B5CFF);
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  -webkit-text-fill-color: transparent;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:900px){
+  .projects-grid,
+  .team-grid-pro {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+  .projects-grid,
+  .team-grid-pro {
+    grid-template-columns: 1fr;
+  }
+}

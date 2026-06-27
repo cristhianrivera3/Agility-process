@@ -1,0 +1,28 @@
+.app {
+  position: relative;
+}
+
+.site-logo {
+  position: fixed;
+  top: 50px;
+  left: 24px;
+  z-index: 1001;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.site-logo:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 600px) {
+  .site-logo {
+    top: 48px;
+    left: 12px;
+  }
+
+  .site-logo svg {
+    width: 130px;
+    height: auto;
+  }
+}
