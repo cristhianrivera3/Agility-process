@@ -43,9 +43,6 @@ pagina-weeb/
 ├── frontend/                   # Frontend React (en desarrollo)
 │   └── (próximamente con Vite + React)
 │
-├── common-place/              # Proyecto original (tienda de ropa)
-│   └── (archivos legacy)
-│
 └── README.md                  # Este archivo
 ```
 

@@ -12,7 +12,7 @@ cloudinary.config({
 });
 
 // Función para subir imagen
-export const uploadImage = async (filePath, folder = 'common-place-store') => {
+export const uploadImage = async (filePath, folder = 'agility-process-store') => {
   try {
     const result = await cloudinary.uploader.upload(filePath, {
       folder: folder,
@@ -75,7 +75,7 @@ export const getOptimizedImage = (publicId, options = {}) => {
 };
 
 // Función para subir múltiples imágenes
-export const uploadMultipleImages = async (filePaths, folder = 'common-place-store') => {
+export const uploadMultipleImages = async (filePaths, folder = 'agility-process-store') => {
   try {
     const uploadPromises = filePaths.map(filePath => 
       uploadImage(filePath, folder)
