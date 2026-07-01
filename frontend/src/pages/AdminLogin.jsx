@@ -110,16 +110,13 @@ const AdminLogin = () => {
           <div className="decoration-content">
             <span className="decoration-icon">🛡️</span>
             <h2>Administra tu sitio</h2>
-            <p>Gestiona servicios, portafolio, contactos y más desde un solo lugar.</p>
+            <p>Gestiona servicios, portafolio y más desde un solo lugar.</p>
             <div className="decoration-features">
               <div className="decoration-feature">
                 <span>📋</span> Gestionar Servicios
               </div>
               <div className="decoration-feature">
                 <span>📁</span> Administrar Portafolio
-              </div>
-              <div className="decoration-feature">
-                <span>📧</span> Revisar Contactos
               </div>
               <div className="decoration-feature">
                 <span>📊</span> Ver Estadísticas

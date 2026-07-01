@@ -10,7 +10,6 @@ import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
 import Portfolio from './pages/Portfolio';
 import PortfolioDetail from './pages/PortfolioDetail';
-import Contact from './pages/Contact';
 import About from './pages/About';
 
 import AdminLogin from './pages/AdminLogin';
@@ -36,7 +35,6 @@ function App() {
               <Route path="/servicios/:slug" element={<ServiceDetail />} />
               <Route path="/portafolio" element={<Portfolio />} />
               <Route path="/portafolio/:slug" element={<PortfolioDetail />} />
-              <Route path="/contacto" element={<Contact />} />
               <Route path="/nosotros" element={<About />} />
               <Route path="/admin" element={<AdminLogin />} />
               <Route path="/admin/dashboard" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} />

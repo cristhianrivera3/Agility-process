@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { portfolioAPI } from '../services/api';
-import LeadForm from '../components/LeadForm';
 import ShinyCta from '../components/ShinyCta';
 import './PortfolioDetail.css';
 
@@ -11,7 +10,7 @@ const PortfolioDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [activeImage, setActiveImage] = useState(0);
-  const [showLeadForm, setShowLeadForm] = useState(false);
+
 
   const projectTypes = {
     'desarrollo-web': { name: 'Desarrollo Web', icon: '🌐' },
@@ -206,32 +205,18 @@ const PortfolioDetail = () => {
                 </div>
               )}
 
-              <div className="pd-card cta-card">
-                <h3>¿Necesitas algo similar?</h3>
-                <p>Podemos crear un proyecto a la medida de tus necesidades</p>
-                <ShinyCta onClick={() => setShowLeadForm(true)}>
-                  Solicitar cotización
-                </ShinyCta>
-              </div>
+
             </div>
           </div>
         </div>
       </section>
-
-      {showLeadForm && (
-        <LeadForm
-          serviceName={project.title}
-          serviceType={project.projectType}
-          onClose={() => setShowLeadForm(false)}
-        />
-      )}
 
       <section className="pd-cta">
         <div className="container">
           <h2>¿Listo para crear algo increíble?</h2>
           <p>Cada proyecto es una oportunidad para superar expectativas</p>
           <div className="cta-buttons">
-            <ShinyCta href="/contacto">
+            <ShinyCta href="/nosotros">
               Contáctanos
             </ShinyCta>
             <ShinyCta href="/servicios">

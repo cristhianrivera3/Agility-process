@@ -30,7 +30,7 @@ export default function Home() {
           </p>
 
           <div className="hero-actions">
-            <ShinyCta href="/contacto">
+            <ShinyCta href="/nosotros">
               Agendar Consulta
             </ShinyCta>
 
@@ -66,7 +66,7 @@ export default function Home() {
 
       <section className="cta-section">
         <h2>¿Listo para llevar tu proyecto al siguiente nivel?</h2>
-        <ShinyCta href="/contacto">
+        <ShinyCta href="/nosotros">
           Empezar ahora
         </ShinyCta>
       </section>

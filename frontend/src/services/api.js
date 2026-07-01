@@ -142,30 +142,6 @@ export const portfolioAPI = {
 };
 
 // ================================
-// SERVICIOS DE CONTACTO
-// ================================
-
-export const contactAPI = {
-  // Enviar mensaje de contacto
-  send: (contactData) => api.post('/contact', contactData),
-  
-  // Obtener todos los contactos (admin)
-  getAll: (params = {}) => api.get('/contact', { params }),
-  
-  // Obtener estadísticas (admin)
-  getStats: () => api.get('/contact/stats'),
-  
-  // Obtener contacto por ID (admin)
-  getById: (id) => api.get(`/contact/${id}`),
-  
-  // Actualizar contacto (admin)
-  update: (id, contactData) => api.put(`/contact/${id}`, contactData),
-  
-  // Eliminar contacto (admin)
-  delete: (id) => api.delete(`/contact/${id}`),
-};
-
-// ================================
 // SERVICIOS DE USUARIOS (ADMIN)
 // ================================
 

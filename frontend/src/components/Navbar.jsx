@@ -4,9 +4,8 @@ import './Navbar.css';
 const navItems = [
   { name: 'Inicio', url: '/' },
   { name: 'Servicios', url: '/servicios' },
-  { name: 'Portafolio', url: '/portafolio' },
   { name: 'Nosotros', url: '/nosotros' },
-  { name: 'Contacto', url: '/contacto' },
+  { name: 'Portafolio', url: '/portafolio' },
 ];
 
 const Navbar = () => {

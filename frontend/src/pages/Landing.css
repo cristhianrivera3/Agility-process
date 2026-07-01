@@ -211,17 +211,6 @@
   font-weight: 700;
 }
 
-/* =========================
-   CONTACT FORM
-   ========================= */
-.contact-form-section {
-  display: flex;
-  justify-content: center;
-  padding: 0 20px 60px;
-  position: relative;
-  z-index: 1;
-}
-
 .landing-cta {
   padding-bottom: 20px;
 }

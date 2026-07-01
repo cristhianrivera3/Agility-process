@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { servicesAPI } from '../services/api';
-import LeadForm from '../components/LeadForm';
 import ShinyCta from '../components/ShinyCta';
 import './ServiceDetail.css';
 
@@ -10,7 +9,7 @@ const ServiceDetail = () => {
   const [service, setService] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [showLeadForm, setShowLeadForm] = useState(false);
+
 
   const categories = {
     'desarrollo-web': { name: 'Desarrollo Web', icon: '🌐' },
@@ -98,10 +97,7 @@ const ServiceDetail = () => {
               )}
             </div>
             <div className="detail-actions">
-              <ShinyCta onClick={() => setShowLeadForm(true)}>
-                Solicitar Cotización
-              </ShinyCta>
-              <ShinyCta href="/contacto">
+              <ShinyCta href="/nosotros">
                 Consultar más
               </ShinyCta>
             </div>
@@ -169,32 +165,18 @@ const ServiceDetail = () => {
                 </div>
               )}
 
-              <div className="sidebar-cta">
-                <h3>¿Interesado?</h3>
-                <p>Déjanos tus datos y te contactaremos en menos de 24 horas</p>
-                <ShinyCta onClick={() => setShowLeadForm(true)}>
-                  Quiero más información
-                </ShinyCta>
-              </div>
+
             </div>
           </div>
         </div>
       </section>
-
-      {showLeadForm && (
-        <LeadForm
-          serviceName={service.name}
-          serviceType={service.category}
-          onClose={() => setShowLeadForm(false)}
-        />
-      )}
 
       <section className="detail-cta">
         <div className="container">
           <h2>¿Listo para transformar tu negocio?</h2>
           <p>Contáctanos hoy y descubre cómo podemos ayudarte a alcanzar tus objetivos</p>
           <div className="cta-buttons">
-            <ShinyCta href="/contacto">
+            <ShinyCta href="/nosotros">
               Contáctanos
             </ShinyCta>
             <ShinyCta href="/portafolio">

@@ -4,7 +4,6 @@
  * Dashboard completo para gestionar:
  * - Servicios (CRUD)
  * - Portafolio (CRUD) 
- * - Contactos (leer, gestionar)
  * - Estadísticas
  * - Usuarios trabajadores
  */
@@ -13,7 +12,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { useAuth } from '../context/AuthContext';
-import { servicesAPI, portfolioAPI, contactAPI } from '../services/api';
+import { servicesAPI, portfolioAPI } from '../services/api';
 import './AdminDashboard.css';
 
 // ================================
@@ -23,7 +22,6 @@ const SECTIONS = {
   DASHBOARD: 'dashboard',
   SERVICES: 'services',
   PORTFOLIO: 'portfolio',
-  CONTACTS: 'contacts',
   ANALYTICS: 'analytics'
 };
 
@@ -38,7 +36,6 @@ const AdminDashboard = () => {
   // Data states
   const [services, setServices] = useState([]);
   const [projects, setProjects] = useState([]);
-  const [contacts, setContacts] = useState([]);
   const [stats, setStats] = useState(null);
   const [isLoadingData, setIsLoadingData] = useState(true);
 
@@ -59,15 +56,13 @@ const AdminDashboard = () => {
   const loadDashboardData = async () => {
     setIsLoadingData(true);
     try {
-      const [servicesRes, projectsRes, contactsRes] = await Promise.all([
+      const [servicesRes, projectsRes] = await Promise.all([
         servicesAPI.getAll({ limit: 100, all: true }).catch(() => ({ data: { data: [] } })),
         portfolioAPI.getAll({ limit: 100, all: true }).catch(() => ({ data: { data: [] } })),
-        contactAPI.getAll({ limit: 100 }).catch(() => ({ data: { data: [] } })),
       ]);
 
       setServices(servicesRes.data.data || []);
       setProjects(projectsRes.data.data || []);
-      setContacts(contactsRes.data.data || []);
       setStats(null);
     } catch (error) {
       console.error('Error loading dashboard data:', error);
@@ -94,27 +89,6 @@ const AdminDashboard = () => {
       setProjects(prev => prev.filter(p => p._id !== id));
     } catch (error) {
       alert('Error al eliminar proyecto');
-    }
-  };
-
-  const handleDeleteContact = async (id) => {
-    if (!window.confirm('¿Estás seguro de eliminar este mensaje?')) return;
-    try {
-      await contactAPI.delete(id);
-      setContacts(prev => prev.filter(c => c._id !== id));
-    } catch (error) {
-      alert('Error al eliminar mensaje');
-    }
-  };
-
-  const handleUpdateContactStatus = async (id, status) => {
-    try {
-      await contactAPI.update(id, { status });
-      setContacts(prev => prev.map(c => 
-        c._id === id ? { ...c, status } : c
-      ));
-    } catch (error) {
-      alert('Error al actualizar estado');
     }
   };
 
@@ -174,13 +148,6 @@ const AdminDashboard = () => {
               <span className="nav-badge">{projects.length}</span>
             </button>
             <button
-              className={`nav-btn ${activeSection === SECTIONS.CONTACTS ? 'active' : ''}`}
-              onClick={() => setActiveSection(SECTIONS.CONTACTS)}
-            >
-              📧 Contactos
-              <span className="nav-badge contact-badge">{contacts.length}</span>
-            </button>
-            <button
               className={`nav-btn ${activeSection === SECTIONS.ANALYTICS ? 'active' : ''}`}
               onClick={() => setActiveSection(SECTIONS.ANALYTICS)}
             >
@@ -210,7 +177,7 @@ const AdminDashboard = () => {
             ) : (
               <>
                 {activeSection === SECTIONS.DASHBOARD && (
-                  <DashboardOverview services={services} projects={projects} contacts={contacts} />
+                  <DashboardOverview services={services} projects={projects} />
                 )}
                 {activeSection === SECTIONS.SERVICES && (
                   <ServicesManager 
@@ -226,15 +193,8 @@ const AdminDashboard = () => {
                     onRefresh={loadDashboardData}
                   />
                 )}
-                {activeSection === SECTIONS.CONTACTS && (
-                  <ContactsManager 
-                    contacts={contacts} 
-                    onDelete={handleDeleteContact}
-                    onUpdateStatus={handleUpdateContactStatus}
-                  />
-                )}
                 {activeSection === SECTIONS.ANALYTICS && (
-                  <AnalyticsView services={services} projects={projects} contacts={contacts} />
+                  <AnalyticsView services={services} projects={projects} />
                 )}
               </>
             )}
@@ -253,7 +213,6 @@ const getSectionTitle = (section) => {
     [SECTIONS.DASHBOARD]: 'Dashboard',
     [SECTIONS.SERVICES]: 'Gestión de Servicios',
     [SECTIONS.PORTFOLIO]: 'Gestión de Portafolio',
-    [SECTIONS.CONTACTS]: 'Mensajes de Contacto',
     [SECTIONS.ANALYTICS]: 'Estadísticas del Sitio'
   };
   return titles[section] || 'Dashboard';
@@ -264,7 +223,6 @@ const getSectionDescription = (section) => {
     [SECTIONS.DASHBOARD]: 'Resumen general de tu sitio web',
     [SECTIONS.SERVICES]: 'Administra los servicios que ofreces a tus clientes',
     [SECTIONS.PORTFOLIO]: 'Gestiona los proyectos realizados por la agencia',
-    [SECTIONS.CONTACTS]: 'Revisa y gestiona los mensajes de tus clientes potenciales',
     [SECTIONS.ANALYTICS]: 'Métricas y estadísticas de rendimiento'
   };
   return descs[section] || '';
@@ -273,20 +231,14 @@ const getSectionDescription = (section) => {
 // ================================
 // DASHBOARD OVERVIEW
 // ================================
-const DashboardOverview = ({ services, projects, contacts }) => {
-  const newContacts = contacts.filter(c => c.status === 'nuevo').length;
-  const urgentContacts = contacts.filter(c => c.priority === 'urgente').length;
+const DashboardOverview = ({ services, projects }) => {
   const featuredServices = services.filter(s => s.featured).length;
   const featuredProjects = projects.filter(p => p.featured).length;
 
   const cards = [
     { icon: '📋', label: 'Servicios', value: services.length, color: '#00d4ff', sub: `${featuredServices} destacados` },
     { icon: '📁', label: 'Proyectos', value: projects.length, color: '#7c3aed', sub: `${featuredProjects} destacados` },
-    { icon: '📧', label: 'Contactos', value: contacts.length, color: '#22c55e', sub: `${newContacts} nuevos` },
-    { icon: '🚨', label: 'Urgentes', value: urgentContacts, color: '#ef4444', sub: 'requieren atención' },
   ];
-
-  const recentContacts = contacts.slice(0, 5);
 
   return (
     <div className="dashboard-overview">
@@ -301,30 +253,6 @@ const DashboardOverview = ({ services, projects, contacts }) => {
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="recent-section">
-        <h3>Mensajes Recientes</h3>
-        {recentContacts.length === 0 ? (
-          <p className="empty-state">No hay mensajes recientes</p>
-        ) : (
-          <div className="recent-list">
-            {recentContacts.map(contact => (
-              <div key={contact._id} className="recent-item">
-                <div className="recent-avatar">
-                  {contact.name?.[0]?.toUpperCase() || '?'}
-                </div>
-                <div className="recent-content">
-                  <strong>{contact.name}</strong>
-                  <span className="recent-subject">{contact.subject}</span>
-                </div>
-                <span className={`status-badge status-${contact.status}`}>
-                  {contact.status}
-                </span>
-              </div>
-            ))}
-          </div>
-        )}
       </div>
     </div>
   );
@@ -684,124 +612,14 @@ const ProjectForm = ({ project, onClose, onSaved }) => {
 };
 
 // ================================
-// CONTACTS MANAGER
-// ================================
-const ContactsManager = ({ contacts, onDelete, onUpdateStatus }) => {
-  const [filter, setFilter] = useState('all');
-  const [expandedId, setExpandedId] = useState(null);
-
-  const filteredContacts = filter === 'all'
-    ? contacts
-    : contacts.filter(c => c.status === filter);
-
-  const statusCounts = {
-    all: contacts.length,
-    nuevo: contacts.filter(c => c.status === 'nuevo').length,
-    'en-proceso': contacts.filter(c => c.status === 'en-proceso').length,
-    respondido: contacts.filter(c => c.status === 'respondido').length,
-  };
-
-  return (
-    <div className="contacts-section">
-      <div className="contacts-filters">
-        {[
-          { id: 'all', label: 'Todos', count: statusCounts.all },
-          { id: 'nuevo', label: 'Nuevos', count: statusCounts.nuevo },
-          { id: 'en-proceso', label: 'En Proceso', count: statusCounts['en-proceso'] },
-          { id: 'respondido', label: 'Respondidos', count: statusCounts.respondido },
-        ].map(f => (
-          <button
-            key={f.id}
-            className={`contact-filter-btn ${filter === f.id ? 'active' : ''}`}
-            onClick={() => setFilter(f.id)}
-          >
-            {f.label} <span className="filter-count">{f.count}</span>
-          </button>
-        ))}
-      </div>
-
-      {filteredContacts.length === 0 ? (
-        <div className="empty-state"><p>No hay mensajes</p></div>
-      ) : (
-        <div className="contacts-list">
-          {filteredContacts.map(contact => (
-            <div key={contact._id} className={`contact-card ${contact.priority === 'urgente' ? 'urgent' : ''}`}>
-              <div className="contact-header" onClick={() => setExpandedId(expandedId === contact._id ? null : contact._id)}>
-                <div className="contact-avatar">
-                  {contact.name?.[0]?.toUpperCase() || '?'}
-                </div>
-                <div className="contact-summary">
-                  <strong>{contact.name}</strong>
-                  <span className="contact-email">{contact.email}</span>
-                  <span className="contact-subject">{contact.subject}</span>
-                </div>
-                <div className="contact-meta">
-                  <span className={`status-badge status-${contact.status}`}>{contact.status}</span>
-                  <span className="contact-date">
-                    {new Date(contact.createdAt).toLocaleDateString('es-CO')}
-                  </span>
-                </div>
-              </div>
-
-              {expandedId === contact._id && (
-                <div className="contact-details">
-                  <div className="details-grid">
-                    <div><strong>Teléfono:</strong> {contact.phone || '—'}</div>
-                    <div><strong>Empresa:</strong> {contact.company || '—'}</div>
-                    <div><strong>Servicio:</strong> {contact.serviceType || '—'}</div>
-                    <div><strong>Presupuesto:</strong> {contact.budgetRange || '—'}</div>
-                  </div>
-                  <div className="details-message">
-                    <strong>Mensaje:</strong>
-                    <p>{contact.message}</p>
-                  </div>
-                  <div className="details-actions">
-                    <select
-                      value={contact.status}
-                      onChange={(e) => onUpdateStatus(contact._id, e.target.value)}
-                      className="status-select"
-                    >
-                      <option value="nuevo">📌 Nuevo</option>
-                      <option value="en-proceso">🔄 En Proceso</option>
-                      <option value="respondido">✅ Respondido</option>
-                      <option value="cerrado">🔒 Cerrado</option>
-                      <option value="spam">🚫 Spam</option>
-                    </select>
-                    <button className="btn btn-outline btn-small" onClick={() => onDelete(contact._id)}>
-                      Eliminar
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-};
-
-// ================================
 // ANALYTICS VIEW
 // ================================
-const AnalyticsView = ({ services, projects, contacts }) => {
+const AnalyticsView = ({ services, projects }) => {
   const totalViews = services.reduce((sum, s) => sum + (s.stats?.views || 0), 0) +
     projects.reduce((sum, p) => sum + (p.stats?.views || 0), 0);
-  const totalLeads = contacts.filter(c => c.status !== 'spam').length;
-  const conversionRate = totalViews > 0 ? ((totalLeads / totalViews) * 100).toFixed(1) : '0';
-
-  // Contacts by service type
-  const contactsByService = {};
-  contacts.forEach(c => {
-    const type = c.serviceType || 'otro';
-    contactsByService[type] = (contactsByService[type] || 0) + 1;
-  });
 
   const analyticsCards = [
     { icon: '👁️', label: 'Vistas totales', value: totalViews.toLocaleString('es-CO') },
-    { icon: '📝', label: 'Leads generados', value: totalLeads },
-    { icon: '📊', label: 'Tasa de conversión', value: `${conversionRate}%` },
-    { icon: '✅', label: 'Contactos respondidos', value: contacts.filter(c => c.status === 'respondido').length },
   ];
 
   return (
@@ -818,26 +636,6 @@ const AnalyticsView = ({ services, projects, contacts }) => {
 
       <div className="analytics-details">
         <div className="analytics-block">
-          <h3>📋 Por Servicio</h3>
-          <div className="services-breakdown">
-            {Object.entries(contactsByService).map(([type, count]) => (
-              <div key={type} className="breakdown-item">
-                <span className="breakdown-name">{type}</span>
-                <div className="breakdown-bar">
-                  <div className="breakdown-fill" style={{
-                    width: `${(count / totalLeads) * 100}%`
-                  }}></div>
-                </div>
-                <span className="breakdown-count">{count}</span>
-              </div>
-            ))}
-            {Object.keys(contactsByService).length === 0 && (
-              <p className="empty-state">No hay datos suficientes</p>
-            )}
-          </div>
-        </div>
-
-        <div className="analytics-block">
           <h3>🚀 Acciones Rápidas</h3>
           <div className="quick-actions">
             <div className="quick-action">
@@ -852,13 +650,6 @@ const AnalyticsView = ({ services, projects, contacts }) => {
               <div>
                 <strong>Subir imagen</strong>
                 <p>Añade imágenes a proyectos</p>
-              </div>
-            </div>
-            <div className="quick-action">
-              <span>📧</span>
-              <div>
-                <strong>Revisar contactos</strong>
-                <p>{contacts.filter(c => c.status === 'nuevo').length} pendientes</p>
               </div>
             </div>
           </div>

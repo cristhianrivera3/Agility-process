@@ -5,7 +5,7 @@ import NeuralBackground from '../components/NeuralBackground';
 import GooeyText from '../components/GooeyText';
 import ShinyCta from '../components/ShinyCta';
 import TextScramble from '../components/TextScramble';
-import LeadForm from '../components/LeadForm';
+
 
 const ContactBgWrapper = ({ children }) => {
   const wrapperRef = useRef(null);
@@ -199,7 +199,7 @@ const Landing = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
           >
-            <ShinyCta href="/contacto">
+            <ShinyCta href="/nosotros">
               <TextScramble text="Agendar Consulta" as="span" duration={1.5} delay={0.5} />
             </ShinyCta>
             <ShinyCta href="/portafolio">
@@ -399,16 +399,6 @@ const Landing = () => {
             ¿Listo para llevar tu proyecto al siguiente nivel?
           </motion.h2>
         </motion.section>
-
-        <motion.div
-          className="contact-form-section"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <LeadForm inline onClose={() => {}} />
-        </motion.div>
 
         <motion.div
           className="testimonials-section"

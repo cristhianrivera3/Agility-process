@@ -36,7 +36,6 @@ import connectDB, { checkDBHealth } from './config/database.js';
 // Importar rutas - Agencia tecnológica
 import serviceRoutes from './routes/serviceRoutes.js';
 import portfolioRoutes from './routes/portfolioRoutes.js';
-import contactRoutes from './routes/contactRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
@@ -128,9 +127,6 @@ app.use('/api/services', serviceRoutes);
 // Rutas de portafolio/proyectos
 app.use('/api/portfolio', portfolioRoutes);
 
-// Rutas de contacto
-app.use('/api/contact', contactRoutes);
-
 // Rutas de autenticación
 app.use('/api/auth', authRoutes);
 
@@ -189,8 +185,7 @@ app.listen(PORT, () => {
   console.log('   🚀 Rutas de la Agencia:');
   console.log('   📋 Services:  http://localhost:' + PORT + '/api/services');
   console.log('   📁 Portfolio: http://localhost:' + PORT + '/api/portfolio');
-  console.log('   📧 Contact:   http://localhost:' + PORT + '/api/contact');
-  console.log('');
+   console.log('');
   console.log('⚡ Usa Ctrl+C para detener el servidor');
   console.log('='.repeat(60));
 });
