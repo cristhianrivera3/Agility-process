@@ -16,10 +16,9 @@ const ServiceDetail = () => {
     'ciberseguridad': { name: 'Ciberseguridad', icon: '🔒' },
     'marketing-digital': { name: 'Marketing Digital', icon: '📈' },
     'diseno-uiux': { name: 'Diseño UI/UX', icon: '🎨' },
+    'automatizaciones': { name: 'Automatizaciones', icon: '🤖' },
     'consultoria-ti': { name: 'Consultoría TI', icon: '💼' },
-    'desarrollo-movil': { name: 'Desarrollo Móvil', icon: '📱' },
-    'cloud-devops': { name: 'Cloud & DevOps', icon: '☁️' },
-    'data-analytics': { name: 'Data Analytics', icon: '📊' }
+    'cloud-devops': { name: 'Cloud y DevOps', icon: '☁️' }
   };
 
   useEffect(() => {

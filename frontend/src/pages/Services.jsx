@@ -7,13 +7,6 @@ import './Services.css';
 
 const FALLBACK_SERVICES = [
   {
-    _id: '2',
-    name: 'Ciberseguridad',
-    slug: 'ciberseguridad',
-    desc: 'Protegemos tu infraestructura digital contra riesgos y amenazas.',
-    icon: '🔒'
-  },
-  {
     _id: '3',
     name: 'Marketing Digital',
     slug: 'marketing-digital',
@@ -35,6 +28,20 @@ const FALLBACK_SERVICES = [
     icon: '🎨'
   },
   {
+    _id: '7',
+    name: 'Automatizaciones',
+    slug: 'automatizaciones',
+    desc: 'Automatización de procesos para optimizar tu flujo de trabajo y aumentar la eficiencia.',
+    icon: '🤖'
+  },
+  {
+    _id: '2',
+    name: 'Ciberseguridad',
+    slug: 'ciberseguridad',
+    desc: 'Protegemos tu infraestructura digital contra riesgos y amenazas.',
+    icon: '🔒'
+  },
+  {
     _id: '5',
     name: 'Consultoría TI',
     slug: 'consultoria-ti',
@@ -43,7 +50,7 @@ const FALLBACK_SERVICES = [
   },
   {
     _id: '6',
-    name: 'Cloud & DevOps',
+    name: 'Cloud y DevOps',
     slug: 'cloud-devops',
     desc: 'Infraestructura escalable y automatización de procesos.',
     icon: '☁️'

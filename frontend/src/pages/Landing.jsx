@@ -362,9 +362,6 @@ const Landing = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <ShinyCta href="/servicios/ciberseguridad" className="service-shiny">
-              <TextScramble text="🔒 Ciberseguridad" as="span" duration={1.5} inView />
-            </ShinyCta>
             <ShinyCta href="/servicios/marketing-digital" className="service-shiny">
               <TextScramble text="📈 Marketing Digital" as="span" duration={1.5} inView />
             </ShinyCta>
@@ -372,13 +369,19 @@ const Landing = () => {
               <TextScramble text="🌐 Desarrollo Web" as="span" duration={1.5} inView />
             </ShinyCta>
             <ShinyCta href="/servicios/diseno-uiux" className="service-shiny">
-              <TextScramble text="🎨 UI/UX" as="span" duration={1.5} inView />
+              <TextScramble text="🎨 Diseño UI/UX" as="span" duration={1.5} inView />
+            </ShinyCta>
+            <ShinyCta href="/servicios/automatizaciones" className="service-shiny">
+              <TextScramble text="🤖 Automatizaciones" as="span" duration={1.5} inView />
+            </ShinyCta>
+            <ShinyCta href="/servicios/ciberseguridad" className="service-shiny">
+              <TextScramble text="🔒 Ciberseguridad" as="span" duration={1.5} inView />
+            </ShinyCta>
+            <ShinyCta href="/servicios/consultoria-ti" className="service-shiny">
+              <TextScramble text="💼 Consultoría TI" as="span" duration={1.5} inView />
             </ShinyCta>
             <ShinyCta href="/servicios/cloud-devops" className="service-shiny">
-              <TextScramble text="☁️ Cloud" as="span" duration={1.5} inView />
-            </ShinyCta>
-            <ShinyCta href="/servicios/data-analytics" className="service-shiny">
-              <TextScramble text="📊 Data & IA" as="span" duration={1.5} inView />
+              <TextScramble text="☁️ Cloud y DevOps" as="span" duration={1.5} inView />
             </ShinyCta>
           </motion.div>
         </motion.section>
