@@ -362,14 +362,14 @@ const Landing = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <ShinyCta href="/servicios/desarrollo-web" className="service-shiny">
-              <TextScramble text="🌐 Desarrollo Web" as="span" duration={1.5} inView />
-            </ShinyCta>
             <ShinyCta href="/servicios/ciberseguridad" className="service-shiny">
               <TextScramble text="🔒 Ciberseguridad" as="span" duration={1.5} inView />
             </ShinyCta>
             <ShinyCta href="/servicios/marketing-digital" className="service-shiny">
               <TextScramble text="📈 Marketing Digital" as="span" duration={1.5} inView />
+            </ShinyCta>
+            <ShinyCta href="/servicios/desarrollo-web" className="service-shiny">
+              <TextScramble text="🌐 Desarrollo Web" as="span" duration={1.5} inView />
             </ShinyCta>
             <ShinyCta href="/servicios/diseno-uiux" className="service-shiny">
               <TextScramble text="🎨 UI/UX" as="span" duration={1.5} inView />

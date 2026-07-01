@@ -7,13 +7,6 @@ import './Services.css';
 
 const FALLBACK_SERVICES = [
   {
-    _id: '1',
-    name: 'Desarrollo Web',
-    slug: 'desarrollo-web',
-    desc: 'Creamos sitios web modernos y escalables enfocados en conversión.',
-    icon: '🌐'
-  },
-  {
     _id: '2',
     name: 'Ciberseguridad',
     slug: 'ciberseguridad',
@@ -26,6 +19,13 @@ const FALLBACK_SERVICES = [
     slug: 'marketing-digital',
     desc: 'Estrategias digitales que impulsan tu crecimiento.',
     icon: '📈'
+  },
+  {
+    _id: '1',
+    name: 'Desarrollo Web',
+    slug: 'desarrollo-web',
+    desc: 'Creamos sitios web modernos y escalables enfocados en conversión.',
+    icon: '🌐'
   },
   {
     _id: '4',
