@@ -1,8 +1,15 @@
+import NeuralBackground from '../components/NeuralBackground';
 import './About.css';
 
 const About = () => {
   return (
     <div className="about-page">
+      <NeuralBackground
+        color="#00d4ff"
+        trailOpacity={0.06}
+        particleCount={800}
+        speed={0.9}
+      />
 
       {/* HERO */}
       <section className="about-hero">
