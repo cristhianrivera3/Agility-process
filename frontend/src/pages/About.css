@@ -99,6 +99,115 @@
   padding-bottom: 100px;
 }
 
+.timeline {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #00d4ff, #7B5CFF);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.timeline-year {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #00d4ff;
+  min-width: 60px;
+  padding-top: 2px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -33px;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #00d4ff;
+  border: 3px solid #0a0a14;
+  box-shadow: 0 0 0 2px #00d4ff;
+  z-index: 1;
+}
+
+.timeline-content {
+  flex: 1;
+  background: rgba(20, 20, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.timeline-content p {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.ceo-section {
+  padding-bottom: 100px;
+}
+
+.ceo-card {
+  display: flex;
+  gap: 28px;
+  align-items: flex-start;
+  background: rgba(20, 20, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+
+.ceo-card:hover {
+  border-color: rgba(0, 212, 255, 0.25);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+}
+
+.ceo-avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00d4ff, #7B5CFF);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  flex-shrink: 0;
+}
+
+.ceo-info h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.ceo-role {
+  color: #00d4ff;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.ceo-info p {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
 .gradient-text {
   background: linear-gradient(135deg, #00d4ff, #7B5CFF);
   background-clip: text;

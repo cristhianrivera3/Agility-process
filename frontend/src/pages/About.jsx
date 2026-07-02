@@ -81,6 +81,63 @@ const About = () => {
           empresas y emprendedores a transformar su presencia digital y alcanzar su máximo potencial.
         </p>
       </section>
+
+      <section className="about-section">
+        <h2 className="section-title">Nuestra Trayectoria</h2>
+        <div className="timeline">
+          <div className="timeline-item">
+            <span className="timeline-year">2023</span>
+            <span className="timeline-dot"></span>
+            <div className="timeline-content">
+              <p>Inicio del desarrollo y aprendizaje profundo en el mundo de la programación.</p>
+            </div>
+          </div>
+          <div className="timeline-item">
+            <span className="timeline-year">2024</span>
+            <span className="timeline-dot"></span>
+            <div className="timeline-content">
+              <p>Proyectos iniciales y consolidación técnica con clientes reales.</p>
+            </div>
+          </div>
+          <div className="timeline-item">
+            <span className="timeline-year">2025</span>
+            <span className="timeline-dot"></span>
+            <div className="timeline-content">
+              <p>Creación oficial de Agility Process como empresa de soluciones digitales.</p>
+            </div>
+          </div>
+          <div className="timeline-item">
+            <span className="timeline-year">Futuro</span>
+            <span className="timeline-dot"></span>
+            <div className="timeline-content">
+              <p>Expansión con especialistas y áreas tecnológicas para escalar impacto.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-section ceo-section">
+        <h2 className="section-title">Fundador &amp; CEO</h2>
+        <div className="ceo-card">
+          <div className="ceo-avatar">C</div>
+          <div className="ceo-info">
+            <h3>Cristhian Zambrano</h3>
+            <span className="ceo-role">CEO &amp; Software Developer</span>
+            <p>
+              Programador con más de 3 años de experiencia, apasionado por los procesos digitales
+              y con una visión clara de crecimiento para marcas y empresas que buscan destacar en
+              el entorno digital. Persona transparente, respetuosa y comprometida con ideales
+              grandes, enfocado en procesos ágiles especializados en inteligencia artificial,
+              profesionalismo y una profunda pasión por la ciberseguridad y la programación.
+            </p>
+            <p>
+              Lidera un equipo de trabajo sólido orientado a resultados, donde la innovación,
+              la ética y la excelencia son pilares fundamentales para transformar ideas en
+              soluciones digitales de alto impacto.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
