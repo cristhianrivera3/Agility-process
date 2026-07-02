@@ -2,6 +2,17 @@ import NeuralBackground from '../components/NeuralBackground';
 import './About.css';
 
 const About = () => {
+  const valores = [
+    { icon: '💡', nombre: 'Innovación', desc: 'Abrazamos la tecnología y la creatividad para crear soluciones únicas que marcan la diferencia.' },
+    { icon: '🤝', nombre: 'Compromiso', desc: 'Nos entregamos a cada proyecto con la misma pasión y dedicación que si fuera nuestro.' },
+    { icon: '📈', nombre: 'Mejora Continua', desc: 'Optimizamos cada proceso, aprendemos constantemente y nunca nos conformamos.' },
+    { icon: '🛡️', nombre: 'Integridad', desc: 'Actuamos con honestidad, ética y transparencia en cada relación.' },
+    { icon: '⭐', nombre: 'Excelencia', desc: 'Buscamos la calidad en cada detalle, superando expectativas.' },
+    { icon: '👥', nombre: 'Trabajo en Equipo', desc: 'Creemos que los grandes resultados nacen de la colaboración y el respeto.' },
+    { icon: '🏆', nombre: 'Éxito del Cliente', desc: 'El crecimiento de nuestros clientes es nuestro mayor logro.' },
+    { icon: '🔍', nombre: 'Transparencia', desc: 'Comunicamos con claridad, sin sorpresas, construyendo confianza.' },
+  ];
+
   return (
     <div className="about-page">
       <NeuralBackground
@@ -11,145 +22,65 @@ const About = () => {
         speed={0.9}
       />
 
-      {/* HERO */}
       <section className="about-hero">
         <h1>
-          Construyendo una empresa basada en
-          <span className="gradient-text"> innovación, estructura y visión</span>
+          Sobre <span className="gradient-text">Nosotros</span>
         </h1>
-
-        <p>
-          Agility Process no es solo tecnología. Es estrategia, crecimiento y futuro.
+        <p className="about-hero-desc">
+          Agility Process es una empresa de soluciones digitales impulsada por inteligencia artificial,
+          dedicada a acompañar a negocios y organizaciones en su viaje hacia la transformación digital.
+        </p>
+        <p className="about-hero-desc">
+          Combinamos <strong>creatividad, estrategia empresarial y tecnologías de vanguardia</strong> para desarrollar
+          soluciones que mejoran la visibilidad, optimizan operaciones y generan resultados medibles.
+        </p>
+        <p className="about-hero-desc">
+          Nuestro propósito es <strong>empoderar a empresas y marcas</strong> con herramientas digitales que
+          fortalezcan su presencia en el mercado, mejoren su eficiencia y respalden un crecimiento sostenible,
+          siempre con <strong>transparencia, profesionalismo y enfoque en el cliente.</strong>
         </p>
       </section>
 
-      {/* CEO */}
-      <section className="about-section ceo-section">
-
-        <h2>Fundador & CEO</h2>
-
-        <div className="ceo-card">
-
-          <div className="ceo-avatar">C</div>
-
-          <div>
-            <h3>Cristhian Zambrano</h3>
-            <span className="ceo-role">CEO & Software Developer</span>
-
-            <p>
-              Programador con más de 4 años de experiencia en desarrollo de software,
-              actualmente enfocado en especializarse en ciberseguridad y marketing digital.
-            </p>
-
-            <p>
-              Su visión es construir una empresa de soluciones tecnológicas completas,
-              donde cada área sea liderada por especialistas y cada proyecto sea trabajado
-              bajo estándares profesionales.
-            </p>
-          </div>
-
-        </div>
-
-      </section>
-
-      {/* HISTORIA */}
       <section className="about-section">
-
-        <h2>Nuestra historia</h2>
-
+        <h2 className="section-title">Misión</h2>
         <p>
-          Agility Process nace del crecimiento constante dentro del mundo del desarrollo.
-          Lo que comenzó como aprendizaje individual, se transformó en una visión empresarial:
-          crear soluciones digitales con calidad profesional.
+          Empoderar a empresas, emprendedores y marcas a través de soluciones digitales innovadoras
+          que integran inteligencia artificial, tecnología, estrategia y creatividad, impulsando su
+          crecimiento con transparencia y resultados medibles.
         </p>
-
-        <p>
-          Hoy, este proyecto evoluciona hacia una estructura escalable,
-          donde múltiples áreas tecnológicas convergen en un solo ecosistema.
-        </p>
-
       </section>
 
-      {/* VISIÓN */}
       <section className="about-section">
-
-        <h2>Visión</h2>
-
+        <h2 className="section-title">Visión</h2>
         <p>
-          Construir una empresa líder en soluciones tecnológicas integrales,
-          donde cada área esté dirigida por especialistas
-          y cada proyecto genere impacto real medible.
+          Ser un aliado global de confianza en transformación digital, reconocido por el uso profesional
+          de la inteligencia artificial aplicada a soluciones tecnológicas innovadoras, generando un
+          crecimiento sostenible y resultados óptimos que transforman positivamente los negocios de
+          nuestros clientes.
         </p>
-
       </section>
 
-      {/* VALORES */}
       <section className="about-section values-section">
-
-        <h2>Nuestros valores</h2>
-
+        <h2 className="section-title">Nuestros Valores</h2>
         <div className="values-grid">
-
-          <div className="value-card">⚡ Agilidad</div>
-          <div className="value-card">🎯 Precisión</div>
-          <div className="value-card">🔒 Seguridad</div>
-          <div className="value-card">🚀 Innovación</div>
-          <div className="value-card">📊 Resultados</div>
-          <div className="value-card">💼 Profesionalismo</div>
-
+          {valores.map((v, i) => (
+            <div key={i} className="value-card">
+              <span className="value-icon">{v.icon}</span>
+              <h3>{v.nombre}</h3>
+              <p>{v.desc}</p>
+            </div>
+          ))}
         </div>
-
       </section>
 
-      {/* FILOSOFÍA */}
-      <section className="about-section">
-
-        <h2>Nuestra filosofía</h2>
-
+      <section className="about-section bio-section">
+        <h2 className="section-title">Bio Profesional</h2>
         <p>
-          No construimos solo páginas web.
-          Construimos sistemas digitales pensados para escalar,
-          optimizar procesos y generar crecimiento real.
+          En Agility Process creemos que la tecnología debe estar al servicio de las personas y los
+          negocios. Por eso combinamos inteligencia artificial, estrategia y creatividad para ayudar a
+          empresas y emprendedores a transformar su presencia digital y alcanzar su máximo potencial.
         </p>
-
-        <p>
-          Cada proyecto se basa en estructura, análisis y ejecución,
-          no en improvisación.
-        </p>
-
       </section>
-
-      {/* ROADMAP */}
-      <section className="about-section">
-
-        <h2>Roadmap</h2>
-
-        <div className="roadmap">
-
-          <div className="roadmap-item">
-            <span>2023</span>
-            Inicio del desarrollo y aprendizaje profundo
-          </div>
-
-          <div className="roadmap-item">
-            <span>2024</span>
-            Proyectos iniciales y consolidación técnica
-          </div>
-
-          <div className="roadmap-item">
-            <span>2025</span>
-            Creación de Agility Process
-          </div>
-
-          <div className="roadmap-item">
-            <span>Futuro</span>
-            Expansión con especialistas y áreas tecnológicas
-          </div>
-
-        </div>
-
-      </section>
-
     </div>
   );
 };

@@ -1,162 +1,135 @@
-/* =========================
-   BASE
-========================= */
-
 .about-page {
   padding-top: 100px;
   color: white;
+  position: relative;
+  z-index: 1;
 }
-
-/* =========================
-   HERO
-========================= */
 
 .about-hero {
   text-align: center;
-  margin-bottom: 80px;
+  max-width: 800px;
+  margin: 0 auto 80px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .about-hero h1 {
   font-size: 2.8rem;
   font-weight: 800;
-  max-width: 800px;
-  margin: auto;
+  margin-bottom: 24px;
 }
 
-.about-hero p {
+.about-hero-desc {
   color: #9ca3af;
-  margin-top: 10px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+  font-size: 1.05rem;
 }
 
-/* =========================
-   SECCIÓN GENERAL
-========================= */
+.about-hero-desc strong {
+  color: #e5e7eb;
+}
 
 .about-section {
   max-width: 800px;
-  margin: auto;
+  margin: 0 auto;
   padding: 40px 20px;
+  position: relative;
+  z-index: 1;
 }
 
-.about-section h2 {
-  margin-bottom: 15px;
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #00d4ff, #7B5CFF);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
 }
 
 .about-section p {
   color: #9ca3af;
-  margin-bottom: 10px;
-  line-height: 1.6;
+  line-height: 1.7;
+  font-size: 1.05rem;
 }
 
-/* =========================
-   CEO
-========================= */
-
-.ceo-card {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-  background: rgba(20,20,30,0.8);
-  padding: 20px;
-  border-radius: 15px;
-  border: 1px solid rgba(255,255,255,0.05);
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
 }
 
-.ceo-avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: linear-gradient(135deg,#00d4ff,#7B5CFF);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: white;
+.value-card {
+  background: rgba(20, 20, 30, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 24px 16px;
+  text-align: center;
+  transition: all 0.3s ease;
 }
 
-.ceo-role {
-  color: #00d4ff;
-  font-size: 0.8rem;
+.value-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 212, 255, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.value-icon {
+  font-size: 2rem;
   display: block;
   margin-bottom: 10px;
 }
 
-/* =========================
-   VALORES
-========================= */
-
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 15px;
+.value-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
-.value-card {
-  background: rgba(20,20,30,0.8);
-  padding: 15px;
-  text-align: center;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.05);
-  transition: 0.3s;
+.value-card p {
+  font-size: 0.85rem;
+  color: #9ca3af;
+  line-height: 1.5;
 }
 
-.value-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(0,212,255,0.3);
+.bio-section {
+  padding-bottom: 100px;
 }
-
-/* =========================
-   ROADMAP
-========================= */
-
-.roadmap {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.roadmap-item {
-  padding: 12px;
-  background: rgba(20,20,30,0.8);
-  border-left: 3px solid #00d4ff;
-  border-radius: 8px;
-}
-
-.roadmap-item span {
-  color: #00d4ff;
-  font-weight: bold;
-  margin-right: 10px;
-}
-
-/* =========================
-   GRADIENT
-========================= */
 
 .gradient-text {
   background: linear-gradient(135deg, #00d4ff, #7B5CFF);
-
   background-clip: text;
   -webkit-background-clip: text;
-
   -webkit-text-fill-color: transparent;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:768px){
+@media (max-width: 900px) {
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   .about-hero h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
+}
 
-  .ceo-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
+@media (max-width: 600px) {
   .values-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-hero {
+    margin-bottom: 40px;
+  }
+
+  .about-section {
+    padding: 24px 16px;
   }
 }
